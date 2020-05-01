@@ -17,19 +17,6 @@ class String
   end
 
   def count_sentences
-    array =self.split
-    counter = 0
-    array.each do |word|
-      if word.include?("!")
-        counter += 1
-
-      elsif word.include?( "?" )
-        counter += 1
-
-      elsif word.include?(".")
-        counter += 1
-      end
-    end
-    counter
+    array =self.split(/[/.?!]/).reject {|string| string.empty?}
   end
 end
